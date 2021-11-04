@@ -7,9 +7,13 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.scss';
 import CartIcon from '../cart-icon/cart-icon';
+import CartDropdown from '../cart-dropdown/cart-dropdown';
+import  { toggleDropdown } from '../../redux/actions/cart-actions';
 
-const Header = ({currentUser}) => (
-       <div className='header'>
+
+const Header = ({currentUser, hideDropdown}) => (
+
+    <div className='header'>
            <Link className='logo-container' to='/'>
                <Logo className='logo'/>
            </Link>
@@ -23,11 +27,15 @@ const Header = ({currentUser}) => (
                 }
                 <CartIcon/>
            </div>
+           {
+            hideDropdown ? '' : <CartDropdown />
+           }
        </div>
-    );
+);
 
 const mapStateToProps = (state) => ({
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    hideDropdown: state.cart.hideDropdown
 })
 
 export default connect(mapStateToProps)(Header);
