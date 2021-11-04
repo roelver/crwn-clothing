@@ -21,7 +21,7 @@ class Signin extends React.Component {
         const {email, password } = this.state;
 
         try  {
-            const { user } =  await auth.signInWithEmailAndPassword(email, password);
+            await auth.signInWithEmailAndPassword(email, password);
             this.setState({email: '', password: ''});
         } catch(error) {
             console.error('An error occurred on creating the account:', error);
