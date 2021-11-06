@@ -8,8 +8,6 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './header.scss';
 import CartIcon from '../cart-icon/cart-icon';
 import CartDropdown from '../cart-dropdown/cart-dropdown';
-import  { toggleDropdown } from '../../redux/actions/cart-actions';
-
 
 const Header = ({currentUser, hideDropdown}) => (
 
